@@ -5,8 +5,8 @@ MAX_TRIES=600
 WAIT_PER_TRY=0.1
 
 for i in `seq $MAX_TRIES`; do
-  ip=`docker inspect --format="{{ .NetworkSettings.IPAddress }}" $CONTAINER_NAME`
-  if /usr/bin/nc -c true $ip $port > /dev/null 2>&1; then
+  IP=`docker inspect --format="{{ .NetworkSettings.IPAddress }}" $CONTAINER_NAME`
+  if /usr/bin/nc -c true $IP $PORT > /dev/null 2>&1; then
     # Ready
     exit 0
   fi
